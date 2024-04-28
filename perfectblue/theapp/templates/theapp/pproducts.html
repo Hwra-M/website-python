@@ -1,0 +1,34 @@
+﻿<html>
+<head><title>This is index page</title></head>
+<body>
+    <center>
+        <h1> LIST OF PURCHASED PRODUCTS</h1>
+       
+        <hr/>
+          
+        <table border="1">
+            <tr>
+                <th>CUSTOMER NAME</th>
+                <th>CUSTOMER ADDRESS</th>
+                <th>MOBILE</th>
+             </tr>
+            
+           {% for i in crudst %}
+            
+            <tr>
+                 <td>{{i.pcname}}</td>
+                <td>{{i.pcadd1}}</td>
+                 <td>{{i.pcmobile}}</td>
+                 <td><a href="#">Edit</a></td>
+                 <td><a href="#">Delete</a></td>            
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </center>
+
+
+</body>
+</html>

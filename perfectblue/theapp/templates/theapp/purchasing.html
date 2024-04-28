@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8" />
+        <title>Shopping Cart | perfect blue </title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'static.css' %}" />
+</head> 
+<body>
+       <!-- Top Bar Start -->
+        <div class="top-bar d-none d-md-block">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="top-bar-left">
+                            <div class="text">
+                                <h2>8:00am - 6:00pm</h2>
+                                <p>delivery Hours Mon - Fri</p>
+                            </div>
+                            <div class="text">
+                                <h2>+123 456 7890</h2>
+                                <p>Call Us</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="top-bar-right">
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar End -->
+        <!-- Nav Bar Start -->
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="{% url 'home' %}" class="navbar-brand">Perfect<span>Blue</span></a>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                        <a href="{% url 'about1' %}" class="nav-item nav-link">About</a>
+                        <a href="{% url 'products1' %}" class="nav-item nav-link">Products</a>
+                        <a href="{% url 'contact2' %}" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Nav Bar End -->
+
+    <div>
+        
+                <!-- products Start -->
+            <div class="service">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p></p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <h4>Please enter your details to complete purchase process</h4>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-img">
+                                <img src="{{item.img.url}}"/> <br />
+                            </div>
+                            <h3></h3>
+                            <p>
+                                {{item.name}}<br />
+                                {{item.des}}<br />
+                                {{item.offer}}<br />
+                               <p> price: {{item.price}}<br /></p>
+                            </p>
+                        </div>
+                         </div>
+                    <div>
+                        <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <form method="post">
+                   {% csrf_token %}
+                        <table border="1">
+                        <tr>
+                        <td>Customer Name</td>
+                        <td><input type="text" placeholder="Customer name..." name="cname" /></td>
+                        </tr>
+                        <tr>
+                        <td>Customer Address</td>
+                        <td><input type="text" placeholder="Address..." name="cadd" /></td>
+                        </tr>
+                        <tr>
+                        <td>Customer Mobile</td>
+                        <td><input type="text" placeholder="Mobile No..." name="cmob" /></td>
+                        </tr>
+            
+                        </table>
+                    <input type="submit" value="Insert Record" />
+                 <a href="{% url 'ppdisplay' %}">Display Purchased Records</a>         
+                      <hr />
+                  {% if messages %}
+            {% for x in messages %}
+            <b style="color:green">{{x}}</b>
+            {% endfor %}
+            {% endif %}
+      </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="footer-contact">
+                                    <h2>Store Address</h2>
+                                    <p><i class="fa fa-map-marker-alt"></i>123 Street, Sohar, Oman</p>
+                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                                    <p><i class="fa fa-envelope"></i>perfectBlue@gmail.com</p>
+                                    <div class="footer-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-youtube"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="footer-link">
+                                    <h2>Quick Links</h2>
+                                    <a href="">Terms of use</a>
+                                    <a href="">Privacy policy</a>
+                                    <a href="">Cookies</a>
+                                    <a href="">Help</a>
+                                    <a href="">FQAs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="footer-newsletter">
+                            <h2>Newsletter</h2>
+                            <p>
+                                get our latest news
+                            </p>
+                            <div class="form">
+                                <input class="form-control" placeholder="Email goes here">
+                                <button class="btn">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">PerfectBlue</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+    
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+
+
+</body>
+</html>
